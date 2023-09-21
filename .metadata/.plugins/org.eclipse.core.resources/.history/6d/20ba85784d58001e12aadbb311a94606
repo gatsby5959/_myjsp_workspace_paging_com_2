@@ -1,0 +1,28 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@taglib prefix = "c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>index.jsp입니다.</title>
+</head>
+<body>
+	<h1>Index Page</h1>
+	<c:if test="${ses.id eq null }"> <%--세션이 없으면 보여줘라 --%>
+		ID : <input type="text" name="id">	
+		PWD : <input type="text" name="pwd">
+		<button type="submit">LOGIN</button>
+	</c:if>
+	
+	<br>
+	<hr>
+	
+	<div>
+		<c:if test="${ses.id ne null }><%--세션이 있으면 보여줘라--%>
+		
+		</c:if>
+	</div>
+	
+</body>
+</html>
