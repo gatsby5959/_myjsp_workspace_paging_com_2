@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace = "BoardMapper">
+ <!-- SQL구문별 id namespace.id -->
+ <!-- parameterType=가져온객체  resultType=내보내는 결과객체 -->
+ 
+<insert id="add" parameterType="bvo">
+insert into board(title,writer,content,image_File)
+value (#{title},#{writer},#{content},#{image_File})
+</insert>
+
+<select id="page" parameterType="pvo">
+</select>
+
+ 
+</mapper>

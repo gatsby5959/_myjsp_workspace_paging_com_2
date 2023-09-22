@@ -1,0 +1,28 @@
+package domain;
+
+public class BoardVO {
+//	CREATE TABLE `board` (
+//			  `bno` int NOT NULL AUTO_INCREMENT,
+//			  `title` varchar(200) NOT NULL,
+//			  `writer` varchar(100) NOT NULL,
+//			  `content` text,
+//			  `regdate` datetime DEFAULT CURRENT_TIMESTAMP,
+//			  `moddate` datetime DEFAULT CURRENT_TIMESTAMP,
+//			  `readcount` int DEFAULT '0',
+//			  `image_File` varchar(500) DEFAULT NULL,
+//			  PRIMARY KEY (`bno`)
+//			) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+	
+	private int bno;
+	private String title;
+	private String writer;
+	private String content;
+	private String regdate;
+	private String moddate;
+	private int readcount;
+	private String image_File;
+	
+	
+	
+	
+}

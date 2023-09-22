@@ -53,4 +53,11 @@ public class MemberServiceImpl implements MemberService {
 		return mdao.update(mvo);
 	}
 
+
+	@Override
+	public int remove(String id) {
+		log.info("remove 2");
+		return mdao.delete(id);
+	}
+
 }

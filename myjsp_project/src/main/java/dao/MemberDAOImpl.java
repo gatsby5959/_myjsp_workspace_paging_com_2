@@ -68,4 +68,15 @@ public class MemberDAOImpl implements MemberDAO {
 		return isOk;
 	}
 
+
+	@Override
+	public int delete(String id) {
+		log.info("delete check 3");
+		int isOk = sql.update(NS+"delete",id);
+		if(isOk>0) {
+			sql.commit();
+		}
+		return isOk;
+	}
+
 }

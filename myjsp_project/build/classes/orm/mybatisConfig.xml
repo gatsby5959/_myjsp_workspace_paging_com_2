@@ -6,6 +6,9 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 
 <typeAliases>
 	<typeAlias type="domain.MemberVO" alias="mvo"/>
+	<typeAlias type="domain.BoardVO" alias="bvo"/>
+	<typeAlias type="domain.PagingVO" alias="pvo"/>
+	
 	
 </typeAliases>
 
@@ -23,7 +26,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 
 <mappers>
 	<mapper resource="mapper/memberMapper.xml"></mapper>
-	
+	<mapper resource="mapper/boardMapper.xml"></mapper>
 </mappers>
 
 </configuration>
