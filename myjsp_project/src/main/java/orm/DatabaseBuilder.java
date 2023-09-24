@@ -19,7 +19,7 @@ public class DatabaseBuilder {
 		}
 	}
 	
-	public static SqlSessionFactory getFactory() { //공유될 수 있도록
+	public static SqlSessionFactory getFactory() { //공유될 수 있도록     (~DAOImpl에서 불러다 씀)
 		return factory;
 	}
 	

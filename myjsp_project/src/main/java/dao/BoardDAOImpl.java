@@ -44,6 +44,22 @@ public class BoardDAOImpl implements BoardDAO {
 		log.info("보드 다오 임플의 PagingVO는 " + pgvo);
 		return sql.selectList(NS+"page",pgvo);
 	}
+
+	@Override
+	public int hitcount(int bno) {
+		log.info("다오 임플의 hitcount(int bno)");
+		int isOk = sql.update(NS+"hit", bno);
+		if(isOk>0) {
+			sql.commit();
+		}
+		return isOk;
+	}
+
+	@Override
+	public BoardVO selectOne(int bno) {
+		log.info("dao selectOn 진입");
+		return sql.selectOne(NS+"one",bno);
+	}
 	
 	
 

@@ -8,8 +8,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<typeAlias type="domain.MemberVO" alias="mvo"/>
 	<typeAlias type="domain.BoardVO" alias="bvo"/>
 	<typeAlias type="domain.PagingVO" alias="pvo"/>
-	
-	
+	<typeAlias type="domain.CommentVO" alias="cvo"/>
 </typeAliases>
 
 <environments default="development">
@@ -25,8 +24,9 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 </environments>
 
 <mappers>
-	<mapper resource="mapper/memberMapper.xml"></mapper>
-	<mapper resource="mapper/boardMapper.xml"></mapper>
+	<mapper resource="mapper/memberMapper.xml"/>
+	<mapper resource="mapper/boardMapper.xml"/>
+	<mapper resource="mapper/commentMapper.xml"/>
 </mappers>
 
 </configuration>

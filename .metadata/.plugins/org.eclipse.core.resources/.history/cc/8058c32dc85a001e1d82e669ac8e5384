@@ -1,0 +1,16 @@
+//댓글 등록시 bno, writer, content
+document.getElementById('cmtAddBtn').addEventListener('click',()=>{ //detail.jsp에서 id cmtAddBtn로 줌,  클릭하면 동작
+	const cmtText = document.getElementById('cmtText').value; //detail.jsp 에서 인풋 버튼 디브 해줌 여기선 불러다 씀
+	console.log(cmtText);
+	if(cmtText == null || cmtText ==""){
+		alert('댓글을 입력해주세요.');
+		return false;
+	}else{
+		let cmtData ={ //키벨류 형식의 오브젝트
+			bno:bnoVal,   //detail.jsp에서 const로 bnoVal을 저장해두었음 여기선 불러다 씀
+			writer : document.getElementById('cmtWriter').value, //detail.jsp 에서 인풋 버튼 디브 해줬음 여기선 불러다 씀
+			content : cmtText  //detail.jsp 에서 인풋 버튼 디브 해줬음 여기선 불러다 씀 이미 우에서 1번 const변수처리 한듯
+		};
+		//전송 function 호출
+	}
+})

@@ -1,0 +1,13 @@
+//댓글 등록시 bno, writer, content
+document.getElementById('cmtAddBtn').addEventListener('click',()=>{ //detail.jsp에서 id cmtAddBtn로 줌
+	const cmtText = document.getElementById('cmtText').value; //detail.jsp 에서 인풋 버튼 디브 해줌
+	console.log(cmtText);
+	if(cmtText == null || cmtText ==""){
+		alert('댓글을 입력해주세요.');
+		return false;
+	}else{
+		let cmtData ={
+			bno:bnoVal   //detail.jsp에서 const로 bnoVal을 저장해둠
+		}
+	}
+})

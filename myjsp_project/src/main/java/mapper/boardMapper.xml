@@ -49,5 +49,20 @@ limit #{pageStart}, #{qty}
 	</if>
 </sql>
 
- 
+<update id="hit" parameterType="int">
+	update board set readcount = readcount+1 where bno = #{bno}
+</update>
+
+<select id="one" parameterType="int" resultType="bvo">
+select * from board where bno = #{bno}
+</select>
+
+
+
 </mapper>
+
+
+
+
+
+

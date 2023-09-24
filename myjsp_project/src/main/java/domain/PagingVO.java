@@ -20,7 +20,7 @@ public class PagingVO {
 		return (pageNo-1)*qty; //DB에서 조회할 시작 페이지 구하기
 	}
 	//type이 여러개 들어올 때 값을 배열로 리턴
-	public String[] getTypeToArray() {
+	public String[] getTypeToArray() { //이건 멀까?list.jsp에서 받기 시작해서 여기 type을 타고 배열로 변환되서 boardMapper.xml에서 typeToArray로 사용함  
 		return (this.type==null)?new String[] {}:this.type.split("");
 	}
 	public int getPageNo() {

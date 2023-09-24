@@ -127,7 +127,7 @@ public class BoardController extends HttpServlet {
     				//저장
     				try {
 						item.write(uploadFilePath); // 자바 객체를 디스크에 쓰기
-						bvo.setImage_File(fileName);
+						bvo.setImage_File(fileName); //디비에 텍스트 넣기?
 						
 						//썸네일 작업 : 트래픽 과다사용 방지
 						Thumbnails.of(uploadFilePath).size(60,60)
@@ -137,8 +137,9 @@ public class BoardController extends HttpServlet {
 						e.printStackTrace();
 					}
     				}//이미지가 있으면 실행끝
-    				break;//이미지파일 끝
-    			}//스위치문끝
+    				break;//이미지파일 끝 (case "insert":안)
+    				
+    			}//리스트의 for문의 스위치문끝
     		}//for문긑
     		isOk = bsv.register(bvo);
     		log.info(">>>>insert >> " + (isOk>0?"OK":"Fail" ) );
@@ -147,7 +148,8 @@ public class BoardController extends HttpServlet {
     	} catch (Exception e) {
 			e.printStackTrace();
 		}
-    	break;  //insert끝
+    	break;  //case "insert" : 끝
+    	
     	
     case "pageList":
     	try {
@@ -173,20 +175,47 @@ public class BoardController extends HttpServlet {
     	//bsv pgvo주고 ,limit적용한 row10개 가져오기.
     	List<BoardVO> list = bsv.getPageList(pgvo);
     	log.info("pagestart "+pgvo.getPageNo());//DB에서 조회할 시작row인덱스 구하기
-    	request.setAttribute("list", list);
+    	request.setAttribute("list", list); //다음페이지jsp페이지에서 list라고 쓰면 인식하기 시작
     	log.info("list를 request에 key를 list로 set해줌 "+ list);
     	//페이지 정보를 list.jsp로 보내기
     	log.info("ph = new PagingHandler("+pgvo+","+totalCount+") 직전임");
-//    	PagingHandler ph = new PagingHandler(pgvo, totalCount);
-    	
-    	
+    	PagingHandler ph = new PagingHandler(pgvo, totalCount);
+    	log.info("ph는 페이지 하단 번호를 관리하는 부분이고 값은 " + ph +" 입니다.");
+    	request.setAttribute("ph", ph);
+    	log.info("paging 끝~!!");
     	destPage="/board/list.jsp";
 		} catch (Exception e) {
 			log.info("pageList 에러");
 			e.printStackTrace();
 		}
     	break; //pageList끝
+    
+    case "count":
+    	log.info("case count진입");
+    	try {
+			int bno = Integer.parseInt(request.getParameter("bno")); //list.jsp에서 bno를 겟으로 넘겨서 여기서 받음 //request셋개념(겟방식?)으로 넘긴듯
+			log.info("hitcount직전");
+			bsv.hitcount(bno);
+			
+			destPage="/brd/detail";
+		} catch (Exception e) {
+			log.info("count 에러");
+			e.printStackTrace();
+		}
+    	break; //case count끝
     	
+    case "detail":
+    	log.info("case detail진입");
+    	try {
+    		int bno = Integer.parseInt(request.getParameter("bno")); //위 196줄에서 받은것을 다시 사용 가능한듯 리퀘스트영역에 셋하면 계속 유지되는 듯
+    		BoardVO bvo = bsv.detailview(bno); //select * from board 실행목적
+			log.info("case detail의 bvo : " + bvo);
+			request.setAttribute("bvo", bvo); //request 키 벨류 로 저장함. 바로뒤에 detail.jsp에서 쓰려고...
+			destPage = "/board/detail.jsp";
+		} catch (Exception e) {
+			log.info("detail 에러");
+			e.printStackTrace();
+		}
     	
     }//switch case문끝
     

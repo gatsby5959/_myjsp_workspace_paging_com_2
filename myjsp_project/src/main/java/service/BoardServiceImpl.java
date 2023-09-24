@@ -35,8 +35,20 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public List<BoardVO> getPageList(PagingVO pgvo) {
-		log.info("getPageList 2");
+		log.info("getPageList2");
 		return bdao.getPageList(pgvo);
+	}
+
+	@Override
+	public int hitcount(int bno) {
+		log.info("hitcount(int bno)2");
+		return bdao.hitcount(bno);
+	}
+
+	@Override
+	public BoardVO detailview(int bno) {
+		log.info("detailview2");
+		return bdao.selectOne(bno); //어쩃든 BoardVO객체 1개만 받아오면 One을함 One에 많이 들은건 다른 문제?개념?
 	}
 
 }

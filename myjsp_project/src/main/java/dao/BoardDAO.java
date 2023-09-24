@@ -13,4 +13,8 @@ public interface BoardDAO {
 
 	List<BoardVO> getPageList(PagingVO pgvo);
 
+	int hitcount(int bno);
+
+	BoardVO selectOne(int bno);
+
 }
