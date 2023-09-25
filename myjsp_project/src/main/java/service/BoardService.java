@@ -17,4 +17,12 @@ public interface BoardService {
 
 	BoardVO detailview(int bno);
 
+	BoardVO getDetail(int bno);
+
+	int modifyForEdit(BoardVO bvo);
+
+	String getFileName(int bno);
+
+	int remove(int bno);
+
 }

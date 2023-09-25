@@ -19,6 +19,7 @@ document.getElementById('cmtAddBtn').addEventListener('click',()=>{ //detail.jsp
 			}else{
 				alert("댓글 등록 실패~!!");
 			}
+			//alert('printCommentList('+ cmtData.bno + ') 실행직전');
 			printCommentList(cmtData.bno);  //결국 마지막에는 페이지에서 댓글을 보여주기 해주려고 하는듯... 
 		})
 	}
@@ -47,11 +48,15 @@ async function postCommentToServer(cmtData){ //    //비동기 에이싱크 시�
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function printCommentList(bno){
+//	alert('printCommentList('+ bno+')시작');
     getCommentListFromServer(bno).then(result=>{  //요청하자마자 결과도착하면...?
-        console.log(result);
+        //alert('getCommentListFromServer에서 결과 받음');
+		 console.log(result);
         if(result.length>0){
+			//alert('spreadCommentList실행직전');
             spreadCommentList(result);
         }else{
+			//alert('result.length가 0보다 작은듯');
             let div = document.getElementById('accordionExample');
             div.innerHTML = `comment가 없습니다!댓글이 없습니다!`;
         }
@@ -61,6 +66,7 @@ function printCommentList(bno){
 //서버에 댓글 리스트를 달라고 요청    //서버에 댓글 리스트를 달라고 요청 
 async function getCommentListFromServer(bno){
     try {
+	    //alert('getCommentListFromServer(' + bno + ') 시작');
         const resp = await fetch('/cmt/list/'+bno);  //    /cmt/list/151
         const result = await resp.json(); //결과를 제이슨형태로 받게됨
         return result;        
@@ -70,7 +76,8 @@ async function getCommentListFromServer(bno){
 }
 
 function spreadCommentList(result){ //result 댓글 list     //일단 디비에서 result가 있어야함
-    console.log(result);
+    //alert('spreadCommentList실행시작');
+	console.log(result);
     let div = document.getElementById('accordionExample');
     div.innerHTML="";
     // {[],[],[]}
@@ -92,6 +99,99 @@ function spreadCommentList(result){ //result 댓글 list     //일단 디비에�
         div.innerHTML+= str; // 누적해서 담기
     }
 }
+
+
+
+
+
+//수정 삭제 버튼확인
+document.addEventListener('click',(e)=>{
+    console.log(e.target);
+    if(e.target.classList.contains('cmtModBtn')){
+        let cno = e.target.dataset.cno;
+        console.log(cno);
+
+		//수정 구현 (수정할 데이터를 객체로 생성 -> 컨트롤러에서 수정 요청)
+		let div = e.target.closest('div');	//타겟을 기준으로 가장 가까운 div 찾기
+		let cmtText = div.querySelector('#cmtText').value; //원래cmtText가 군데군데 많음)
+		let writer = e.target.dataset.writer;
+		
+		//비동기통신 함수 호출 -> 처리
+		updateCommentFromServer(cno, writer, cmtText).then(result=>{
+			if(result > 0){
+				alert('댓글 수정 성공~!!');
+				printCommentList(bnoVal);
+			}else{
+				alert('댓글 수정 실패~!!');
+			}
+		});
+		
+    }
+	if(e.target.classList.contains('cmtDelBtn')){
+		let cno = e.target.dataset.cno;
+        console.log(cno);
+	
+		//삭제 구현
+		let div = e.target.closest('div');	//타겟을 기준으로 가장 가까운 div 찾기
+		//let cmtText = div.querySelector('#cmtText').value; //원래cmtText가 군데군데 많음)
+		//let writer = e.target.dataset.writer;
+		
+		//비동기통신 함수 호출 -> 처리
+		removeCommentFromServer(cno).then(result=>{
+			if(result > 0){
+				alert('댓글 삭제 성공~!!');
+				printCommentList(bnoVal);
+			}else{
+				alert('댓글 삭제 실패~!!');
+			}
+		});
+	}
+})
+
+
+async function updateCommentFromServer(cnoVal, cmtWriter, cmtText){
+	try{
+		const url = '/cmt/modify';
+		const config ={
+			method: 'post', 
+			headers:{
+				'Content-Type':'application/json; charset=uft-8'
+			},
+			body:JSON.stringify({cno:cnoVal, writer:cmtWriter, content:cmtText})
+		}	
+		const resp = await fetch(url,config);
+		const result = await resp.text(); // 0 1 등으로 받음
+		return result;
+	}
+	catch(error){
+		console.log(error);
+	}
+}
+
+
+async function removeCommentFromServer(cno){
+	try{
+        const resp = await fetch('/cmt/remove/' +cno);  //   
+        const result = await resp.json(); //결과를 제이슨형태로 받게됨
+        return result;       
+	}
+	catch(error){
+		console.log(error);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

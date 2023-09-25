@@ -1,0 +1,10 @@
+package handler;
+
+public class FileHandler {
+
+	public int deleteFile(String old_file, String savePath) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

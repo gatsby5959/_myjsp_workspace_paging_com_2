@@ -57,8 +57,36 @@ public class BoardDAOImpl implements BoardDAO {
 
 	@Override
 	public BoardVO selectOne(int bno) {
-		log.info("dao selectOn 진입");
+		log.info("dao selectOne 진입");
 		return sql.selectOne(NS+"one",bno);
+	}
+
+	@Override
+	public int update(BoardVO bvo) {
+		log.info("dao임플의 update()진입");
+		int isOk = sql.update(NS+"upd", bvo);
+		log.info("dao임플의 isOk " + isOk);
+		log.info("dao임플의 bvo "+ bvo);
+		if(isOk>0) {
+			sql.commit();
+		}
+		return isOk;
+	}
+
+	@Override
+	public String getFileName(int bno) {
+		// TODO Auto-generated method stub
+		return sql.selectOne(NS+"fileName",bno);
+	}
+
+	@Override
+	public int delete(int bno) {
+		log.info("dao임플의 delete(int bno) 진입");
+		int isOk = sql.delete(NS+"del",bno);
+		if(isOk>0) {
+			sql.commit();
+		}
+		return isOk;
 	}
 	
 	

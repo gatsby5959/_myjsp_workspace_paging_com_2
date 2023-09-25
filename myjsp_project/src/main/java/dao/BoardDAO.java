@@ -17,4 +17,10 @@ public interface BoardDAO {
 
 	BoardVO selectOne(int bno);
 
+	int update(BoardVO bvo);
+
+	String getFileName(int bno);
+
+	int delete(int bno);
+
 }

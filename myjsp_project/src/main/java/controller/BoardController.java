@@ -19,6 +19,7 @@ import org.slf4j.LoggerFactory;
 
 import domain.BoardVO;
 import domain.PagingVO;
+import handler.FileHandler;
 import handler.PagingHandler;
 import net.coobird.thumbnailator.Thumbnails;
 import service.BoardService;
@@ -193,7 +194,7 @@ public class BoardController extends HttpServlet {
     case "count":
     	log.info("case count진입");
     	try {
-			int bno = Integer.parseInt(request.getParameter("bno")); //list.jsp에서 bno를 겟으로 넘겨서 여기서 받음 //request셋개념(겟방식?)으로 넘긴듯
+			int bno = Integer.parseInt(request.getParameter("bno")); //list.jsp에서 bno를 겟으로 넘겨서 여기서 받음 //request셋개념(겟방식?)으로 넘긴듯 //<a href="/brd/count?bno=${bvo.bno}">${bvo.title}</a>
 			log.info("hitcount직전");
 			bsv.hitcount(bno);
 			
@@ -212,10 +213,154 @@ public class BoardController extends HttpServlet {
 			log.info("case detail의 bvo : " + bvo);
 			request.setAttribute("bvo", bvo); //request 키 벨류 로 저장함. 바로뒤에 detail.jsp에서 쓰려고...
 			destPage = "/board/detail.jsp";
-		} catch (Exception e) {
+		
+    	} catch (Exception e) {
 			log.info("detail 에러");
 			e.printStackTrace();
 		}
+    	break; // case "detail": 끝
+    	
+    case "modify":
+    	try {
+        	log.info("modify진입");
+        	int bno = Integer.parseInt(request.getParameter("bno")); //위 196줄에서 받은것을 다시 사용 가능한듯 리퀘스트영역에 셋하면 계속 유지되는 듯
+        	BoardVO bvo = bsv.getDetail(bno);
+    		request.setAttribute("bvo", bvo);
+    		destPage="/board/modify.jsp";
+		} catch (Exception e) {
+			log.info("modify 에러");
+			e.printStackTrace();
+		}
+    	break;//modify끝
+    	
+    
+    case "edit" :
+    	log.info("edit진입");
+		try {
+			//파일 저장 경로 설정
+			savePath = getServletContext().getRealPath("/_fileUpload"); // 이경로로 들어가게끔 해주세요
+
+			File fileDir = new File(savePath);
+			//디스크에 기록할 파일 정보를 setting 하는 객체
+			DiskFileItemFactory fileItemFactory = new DiskFileItemFactory();
+			fileItemFactory.setRepository(fileDir); //저장 경로 설정
+			fileItemFactory.setSizeThreshold(2*1024*1024); //임시저장용량 2메가 //
+			
+			BoardVO bvo = new BoardVO();
+			
+			ServletFileUpload fileUpload = new ServletFileUpload(fileItemFactory);
+			log.info(">> update 준비 >");
+			
+			List<FileItem> itemList = fileUpload.parseRequest(request);
+			
+			String old_file = null; //수정하기전 원래 그림파일
+			
+			for(FileItem item : itemList) {
+				switch(item.getFieldName()) {
+				case "bno":
+					bvo.setBno(Integer.parseInt(item.getString("utf-8")));
+					break;
+				case "title":
+					bvo.setTitle(item.getString("utf-8"));
+					break;
+				case "content":
+					bvo.setContent(item.getString("utf-8"));
+					break;
+				case "image_file":
+					//수정 이전 파일
+					old_file = item.getString("utf-8"); //여기 안타면 null
+					break;
+				case "new_file":
+					//새로운 파일이 있는지 확인
+					if(item.getSize()>0) {
+						//기존 파일 삭제 (기존파일이 있을 경우우)
+						if(old_file != null) {
+							//기존 파일 삭제 (기존 파일이 있을 경우)
+							FileHandler fileHandler = new FileHandler();
+							isOk = fileHandler.deleteFile(old_file, savePath);
+						}
+						//new 파일의 경로와 파일명 (다시)생성
+						String fileName = item.getName().substring(
+								item.getName().lastIndexOf(File.separator)+1);	
+						
+						log.info("new_fileName"+fileName);
+						
+						//실제 저장될 파일 이름  시스템 현재 시간_파일이름.jpg
+						fileName = System.currentTimeMillis()+"_"+fileName;
+						
+						//파일 객체 생성 : D:~
+						File uploadFilePath = new File(fileDir+File.separator+fileName);
+						//저장
+						try {
+							item.write(uploadFilePath);
+							bvo.setImage_File(fileName);
+							
+							//썸내일 작업 : 트레픽 과다 사용 방지
+							Thumbnails.of(uploadFilePath)
+							.size(60, 60)
+							.toFile(new File(fileDir+File.separator+"_th_"+fileName));
+							
+						} catch (Exception e) {
+							log.info(">> new File save  error>");
+							e.printStackTrace();
+						}
+					}else {//새로운 파일이 없다면... 기존 파일을 다시 담기
+						bvo.setImage_File(old_file);
+					}
+					break;
+				}//end ofswitch 
+			}//end of for
+			log.info("bvo는 " + bvo);
+			isOk = bsv.modifyForEdit(bvo);
+//			destPage = "detail?bno="+bno;
+			destPage = "pageList"; // 중간에 대문자 조심
+			//관련 사진 부분
+//			D:\전경환\_jsp_workspace_paging\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\jsp_project\_fileUpload
+			
+									
+//			230919주석처리이하
+//			log.info("edit 진입");
+//			int bno = Integer.parseInt(request.getParameter("bno")); //modify.jsp에서 누르는 순간 /brd/edit로 보냄
+//			String title = request.getParameter("title");
+//			String content = request.getParameter("content");
+//			
+//			BoardVO bvo = new BoardVO(bno,title,content);
+//			log.info("bvo는 " + bvo);
+//			isOk = bsv.modifyForEdit(bvo);
+//			log.info((isOk>0)?"OK":"Fail");
+//			destPage = "detail?bno="+bno;
+			
+		} catch (Exception e) {
+			log.info("edit 에러");
+			e.printStackTrace();
+		}
+		break; 	// case "edit" : 끝
+		
+    
+		// 사진관련 부분 참고
+//		D:\전경환\_jsp_workspace_paging\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\jsp_project\_fileUpload
+	
+    case "remove" :
+		try {
+			log.info("컨트롤러 리무브 들어옴");
+			int bno = Integer.parseInt(request.getParameter("bno")); //197줄부터 이렇게 쉽게 볼러옴 목록페이지 에서 클릭시 부터 bno는 쉽게 쓸수 있음 
+			//삭제할 bno의 image_file Name을 불러오기
+			String fileName = bsv.getFileName(bno);  //파일 이름 불러오기 이 다음 path설정해야함...
+			//savePath 생성
+			savePath = getServletContext().getRealPath("/_fileUpload");
+			//파일 핸들러에서 삭제 요청
+			FileHandler filehandler = new FileHandler();
+			isOk = filehandler.deleteFile(fileName, savePath); // 삭제해줄꺼임  인트 리턴해줄꺼임
+			log.info(   isOk>0? "file remove Ok" : "Fail"   );
+			isOk = bsv.remove(bno);
+			log.info(   isOk>0? "OK" : "Fail"   );
+			destPage="pageList";
+		} catch (Exception e) {
+			log.info("remove 에러");
+			e.printStackTrace();
+		}
+		break;
+    	
     	
     }//switch case문끝
     
