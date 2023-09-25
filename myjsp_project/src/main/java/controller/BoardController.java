@@ -76,7 +76,7 @@ public class BoardController extends HttpServlet {
     case "insert":
     	try {
 			//이미지파일을 업로드할 물리적경로 설정(업로드할때 설정)
-    		savePath = getServletContext().getRealPath("/_fileUpload");//상대경로가져오기
+    		savePath = getServletContext().getRealPath("/_fileUpload");//상대경로가져오기 (없으면 안됨)
     		File fileDir = new File(savePath);
     		log.info("파일저장위치(savePath):"+savePath);
     		//D:\전경환\_myjsp_workspace_paging_com\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\myjsp_project\_fileUpload
