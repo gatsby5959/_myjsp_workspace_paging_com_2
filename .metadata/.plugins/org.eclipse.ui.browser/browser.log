@@ -111,3 +111,99 @@
 9월 26, 2023 03:46:01.968 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
 9월 26, 2023 03:53:38.19 [10212:3824:0926/035338.019:ERROR:device_event_log_impl.cc(225)] [03:53:38.019] Bluetooth: bluetooth_adapter_winrt.cc:1058 Getting Default Adapter failed.
 9월 26, 2023 04:23:17.283 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+
+9월 26, 2023 15:52:42.43 NEW SESSION
+9월 26, 2023 15:52:42.43 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 15:54:48.228 [2748:6832:0926/155448.228:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.183 s for first_image_paint 0.167 s
+9월 26, 2023 15:54:48.796 [2748:6832:0926/155448.796:ERROR:page_load_metrics_update_dispatcher.cc(178)] Invalid first_paint 0.183 s for first_image_paint 0.167 s
+9월 26, 2023 15:54:50.163 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 15:55:24.519 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 15:55:51.489 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 16:00:00.563 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 16:02:26.866 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 16:03:25.812 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 16:04:50.316 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 16:08:36.57 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 16:11:26.176 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 16:11:56.616 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 16:12:20.272 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 16:13:05.332 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 16:13:26.541 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 16:14:40.29 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 16:16:15.438 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 16:36:29.885 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 16:37:55.588 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 16:38:12.426 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 16:41:05.595 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 16:44:08.680 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 16:45:18.261 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 16:47:21.580 [3388:9028:0926/164721.580:ERROR:sharing_service.cc(250)] Device un-registration failed with fatal error
+9월 26, 2023 16:47:22.509 [3388:9028:0926/164722.509:ERROR:device_event_log_impl.cc(225)] [16:47:22.510] Bluetooth: bluetooth_adapter_winrt.cc:1058 Getting Default Adapter failed.
+9월 26, 2023 16:47:44.433 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 16:49:16.595 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 16:57:45.89 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 17:01:29.722 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 17:01:46.814 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 17:02:15.813 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 17:03:26.597 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 17:04:39.385 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 17:05:42.572 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 17:10:01.318 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 17:11:12.942 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 17:13:21.481 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 17:17:42.364 [11096:9204:0926/171742.364:ERROR:device_event_log_impl.cc(225)] [17:17:42.364] Bluetooth: bluetooth_adapter_winrt.cc:1058 Getting Default Adapter failed.
+
+9월 26, 2023 17:50:55.914 NEW SESSION
+9월 26, 2023 17:50:55.914 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 17:52:23.779 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 17:55:11.631 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 17:55:44.700 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 17:58:01.125 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+
+9월 26, 2023 19:17:10.956 NEW SESSION
+9월 26, 2023 19:17:10.956 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 19:24:49.739 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 19:25:18.132 [9484:9740:0926/192518.132:ERROR:sharing_service.cc(250)] Device un-registration failed with fatal error
+9월 26, 2023 19:25:27.919 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 19:26:06.854 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 19:30:45.483 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 19:33:46.526 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 19:39:15.937 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 19:52:20.946 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 19:54:13.293 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 20:03:55.403 [7912:8220:0926/200355.403:ERROR:interface_endpoint_client.cc(702)] Message 0 rejected by interface blink.mojom.WidgetHost
+9월 26, 2023 20:04:07.268 [7912:8220:0926/200407.268:ERROR:interface_endpoint_client.cc(702)] Message 0 rejected by interface blink.mojom.WidgetHost
+9월 26, 2023 20:35:58.105 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 20:40:56.354 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 20:44:33.158 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 20:46:08.87 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 20:47:30.680 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 20:53:51.73 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 20:56:10.464 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 20:56:29.782 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 20:56:56.282 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 21:00:17.374 [10656:9796:0926/210017.374:ERROR:sharing_service.cc(250)] Device un-registration failed with fatal error
+9월 26, 2023 21:00:25.569 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 21:02:18.138 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 21:04:08.694 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 21:11:24.941 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 21:12:01.361 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 21:13:19.581 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 21:16:49.546 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 21:17:23.381 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 21:18:17.675 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 21:19:18.533 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 21:23:01.501 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 21:26:39.164 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 21:28:38.103 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 21:31:25.422 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 21:32:16.959 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 21:33:00.299 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 21:39:32.937 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 21:40:05.294 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 26, 2023 21:40:55.679 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+
+9월 27, 2023 01:10:22.197 NEW SESSION
+9월 27, 2023 01:10:22.197 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 27, 2023 01:19:36.641 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+9월 27, 2023 01:21:33.764 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.

@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="margin"/>
+		<item key="selection" value=""/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<item key="wrap" value="true"/>
 		<item key="incremental" value="false"/>
 		<list key="findhistory">
-			<item value="Enter your personal details and start journey with us"/>
-			<item value="sign up"/>
-			<item value="user-info-container"/>
-			<item value="css"/>
-			<item value="com"/>
-			<item value="ema"/>
-			<item value="request.set"/>
-			<item value="updateCommentFromServer"/>
+			<item value="댓글 등록"/>
+			<item value="삭제 버튼"/>
+			<item value="form-control bg-light border-0 small"/>
+			<item value="&quot;400"/>
+			<item value="moddate"/>
+			<item value="수정버튼"/>
+			<item value="&lt;!-- 댓글표시라인E --&gt;"/>
+			<item value="&lt;!-- 댓글 등록 라인 --&gt;"/>
 		</list>
 		<list key="replacehistory">
 		</list>
