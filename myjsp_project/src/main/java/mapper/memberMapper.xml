@@ -21,7 +21,7 @@ set lastlogin = now()
 where id = #{id}
 </update>
 <select id="list" resultType="mvo">
-select * from member;
+select * from member order by regdate desc;
 </select>
 <update id="update" parameterType="mvo">
 update member set

@@ -289,7 +289,7 @@ footer a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 60vh; /* 화면 높이에 맞게 조정 */
+    height: 50vh; /* 화면 높이에 맞게 조정 */
     transition: transform 0.3s ease; /* 부드러운 변환 효과 추가 */
        font-weight: bold; /* 글자 굵게 설정 */
     font-size: 15px; /* 글자 크기 설정 */
